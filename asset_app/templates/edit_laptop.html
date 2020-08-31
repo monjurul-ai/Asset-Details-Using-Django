@@ -1,0 +1,120 @@
+{% extends 'navigationbar.html' %}
+  {% load static %}
+{% block body %}
+
+<div class="container" style="margin-top:5">
+
+<h2 class="text-center">Edit Laptop Information</h2>
+    <br><br>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <label>UserId</label>
+        <input type="text" class="form-control" name="UserId" value="{{laptop.UserId}}" required>
+        <br>
+        <br>
+        <label>Email</label>
+        <input type="text" class="form-control" name="Email" required>
+        <br>
+        <label>FullName</label>
+        <input type="text" class="form-control" name="FullName" required>
+        <br>
+        <label>Brand</label>
+            <select name="Brand" class="form-control">
+                <option value="Hp">Hp</option>
+                <option value="Dell">Dell</option>
+                <option value="Lenovo">Lenovo</option>
+                <option value="Apple">Apple</option>
+                <option value="Asus">Asus</option>
+                <option value="Acer">Acer</option>
+            </select>
+        <br>
+        <label>Ram</label>
+            <select name="Ram" class="form-control">
+                <option value="4GB">4GB</option>
+                <option value="8GB">8GB</option>
+                <option value="16GB">16GB</option>
+            </select>
+        <br>
+        <label>HardDisk</label>
+            <select name="HardDisk" class="form-control">
+                <option value="1TB">1TB</option>
+                <option value="2TB">2TB</option>
+                <option value="3TB">3TB</option>
+                <option value="4TB">4TB</option>
+                <option value="5TB">5TB</option>
+            </select>
+        <br>
+        <label>SSD</label>
+            <select name="SSD" class="form-control">
+                <option value="128GB">128GB</option>
+                <option value="256GB">256GB</option>
+                <option value="512GB">512GB</option>
+                <option value="1TB">1TB</option>
+                <option value="None">None</option>
+            </select>
+        <br>
+
+        <label>Battery</label>
+            <select name="Battery" class="form-control">
+                <option value="Hp">Hp</option>
+                <option value="Dell">Dell</option>
+                <option value="Lenovo">Lenovo</option>
+                <option value="Apple">Apple</option>
+                <option value="Asus">Asus</option>
+                <option value="Acer">Acer</option>
+            </select>
+        <br>
+        <label>Charger</label>
+            <select name="Charger" class="form-control">
+                <option value="Hp">Hp</option>
+                <option value="Dell">Dell</option>
+                <option value="Lenovo">Lenovo</option>
+                <option value="Apple">Apple</option>
+                <option value="Asus">Asus</option>
+                <option value="Acer">Acer</option>
+            </select>
+        <br>
+
+        <label>Processor_Model</label>
+            <select name="Processor_Model" class="form-control">
+                <option value="Core i9">Core i9</option>
+                <option value="Core i7">Core i7</option>
+                <option value="Core i5">Core i5</option>
+                <option value="Core i3">Core i3</option>
+            </select>
+        <br>
+
+        <label>MacAddress</label>
+        <input type="text" class="form-control" name="MacAddress" required>
+        <br>
+
+        <label>Date</label>
+        <input type="date" class="form-control" name="date1" required>
+        <br>
+
+        <label>Time</label>
+        <input type="Time" class="form-control" name="time1" required>
+        <br>
+
+
+        <input type="submit" value="Submit" class="form-cotrol btn btn-primary">
+
+    </form>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Record Saved Successfully');
+    window.location=('{% url 'view_laptop' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something wrong,Try Again');
+</script>
+{% endifequal %}
+
+{% endblock %}

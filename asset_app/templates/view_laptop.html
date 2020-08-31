@@ -1,0 +1,67 @@
+{% extends 'navigationbar.html' %}
+  {% load static %}
+{% block body %}
+
+<div class="container" style="margin-top:50px">
+    <h2 class="text-center">
+       Laptop All Information
+    </h2>
+ <br><br>
+
+<table class="table table-hover" id="example">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>UserId</th>
+        <th>FullName</th>
+        <th>Email</th>
+        <th>Brand</th>
+        <th>RAM</th>
+        <th>HardDisk</th>
+        <th>SSD</th>
+        <th>Battery</th>
+        <th>Processor_Model</th>
+        <th>Charger</th>
+        <th>MacAddress</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for i in lap %}
+    <tr>
+
+        <td>{{i.id}}</td>
+        <td>{{i.UserId}}</td>
+        <td>{{i.FullName}}</td>
+        <td>{{i.Email}}</td>
+        <td>{{i.Brand}}</td>
+        <td>{{i.RAM}}</td>
+        <td>{{i.HardDisk}}</td>
+        <td>{{i.SSD}}</td>
+        <td>{{i.Battery}}</td>
+        <td>{{i.Charger}}</td>
+        <td>{{i.Processor_Model}}</td>
+        <td>{{i.MacAddress}}</td>
+        <td>{{i.date1}}</td>
+        <td>{{i.time1}}</td>
+        <td><a href="{% url 'delete_desktop' i.id %}" onclick="return confirm('Are you sure ?')" class="btn btn-danger">Delete</a></td>
+        <td><a href="{% url 'edit_laptop' i.id %}" class="btn btn-danger">Edit</a></td>
+
+    </tr>
+    {% endfor %}
+
+
+
+    </tbody>
+</table>
+
+
+</div>
+
+
+{% end block %}
